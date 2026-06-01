@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects - Saad Khan</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            background-color: #1a1a2e;
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            color: #e94560;
+            font-size: 22px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #e94560;
+        }
+        .page-banner {
+            background-color: #1a1a2e;
+            padding: 70px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .page-banner h1 {
+            font-size: 46px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .page-banner h1 span {
+            color: #e94560;
+        }
+
+        .page-banner p {
+            font-size: 16px;
+            color: #a0a0b0;
+            max-width: 500px;
+            margin: 0 auto 20px;
+            line-height: 1.7;
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #a0a0b0;
+            margin-top: 10px;
+        }
+
+        .breadcrumb a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .filter-section {
+            padding: 40px 40px 10px;
+            text-align: center;
+        }
+
+        .filter-section p {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 16px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 8px 22px;
+            border: 2px solid #e94560;
+            border-radius: 25px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            background-color: transparent;
+            color: #e94560;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: #e94560;
+            color: white;
+        }
+        .projects-section {
+            padding: 40px 40px 80px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 18px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        .project-img {
+            height: 190px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 52px;
+            color: white;
+            position: relative;
+        }
+
+        .project-img .proj-label {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            opacity: 0.85;
+        }
+        .project-img .badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .color1 { background-color: #e94560; }
+        .color2 { background-color: #0f3460; }
+        .color3 { background-color: #16793a; }
+        .color4 { background-color: #7b2d8b; }
+        .color5 { background-color: #c47800; }
+        .color6 { background-color: #1a6b8a; }
+
+        .project-details {
+            padding: 22px;
+        }
+
+        .project-details h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+
+        .project-details p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .tag {
+            background-color: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-view {
+            background-color: #e94560;
+            color: white;
+            padding: 9px 18px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn-view:hover {
+            background-color: #c73652;
+        }
+
+        .btn-code {
+            background-color: transparent;
+            color: #1a1a2e;
+            padding: 9px 18px;
+            border: 2px solid #1a1a2e;
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-code:hover {
+            background-color: #1a1a2e;
+            color: white;
+        }
+        .featured-label {
+            text-align: center;
+            margin: 0 auto 30px;
+            max-width: 1100px;
+        }
+
+        .featured-label h3 {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #e94560;
+            margin-bottom: 6px;
+        }
+
+        .featured-label h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .underline {
+            width: 60px;
+            height: 4px;
+            background-color: #e94560;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .featured-card {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            background: white;
+            max-width: 1100px;
+            margin: 0 auto 50px;
+        }
+
+        .featured-img {
+            background-color: #1a1a2e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            color: white;
+            padding: 40px;
+            min-height: 280px;
+        }
+
+        .featured-img p {
+            font-size: 14px;
+            color: #a0a0b0;
+            margin-top: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .featured-details {
+            padding: 36px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-details .featured-badge {
+            display: inline-block;
+            background-color: #fde8ec;
+            color: #e94560;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+
+        .featured-details h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+        }
+
+        .featured-details p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.75;
+            margin-bottom: 18px;
+        }
+        .stats-row {
+            background-color: #1a1a2e;
+            padding: 50px 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item .num {
+            font-size: 36px;
+            font-weight: 700;
+            color: #e94560;
+        }
+
+        .stat-item .stat-label {
+            font-size: 14px;
+            color: #a0a0b0;
+            margin-top: 4px;
+        }
+        .back-cta {
+            padding: 70px 40px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .back-cta h2 {
+            font-size: 30px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .back-cta h2 span {
+            color: #e94560;
+        }
+
+        .back-cta p {
+            font-size: 15px;
+            color: #777;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: #e94560;
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover { background-color: #c73652; }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #1a1a2e;
+            padding: 12px 28px;
+            border: 2px solid #1a1a2e;
+            border-radius: 5px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #1a1a2e;
+            color: white;
+        }
+        footer {
+            background-color: #1a1a2e;
+            color: #a0a0b0;
+            text-align: center;
+            padding: 25px 40px;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        footer .footer-links a {
+            color: #a0a0b0;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        footer .footer-links a:hover {
+            color: #e94560;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links { gap: 15px; }
+
+            .page-banner { padding: 50px 20px; }
+            .page-banner h1 { font-size: 32px; }
+
+            .filter-section { padding: 30px 20px 10px; }
+
+            .projects-section { padding: 30px 20px 60px; }
+
+            .featured-card {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-img { min-height: 200px; }
+
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 40px 20px;
+            }
+
+            .back-cta { padding: 50px 20px; }
+
+            footer { padding: 25px 20px; }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Saad Khan</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="index.html#resume">Resume</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="page-banner">
+        <h1>My <span>Projects</span></h1>
+        <p>A collection of things I've built while learning web development — each one taught me something new.</p>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span>Projects</span>
+        </div>
+    </div>
+    <div class="filter-section">
+        <p>Filter by technology</p>
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
+            <button class="filter-btn" onclick="filterProjects('html', this)">HTML / CSS</button>
+            <button class="filter-btn" onclick="filterProjects('javascript', this)">JavaScript</button>
+            <button class="filter-btn" onclick="filterProjects('api', this)">API</button>
+            <button class="filter-btn" onclick="filterProjects('python', this)">Python</button>
+        </div>
+    </div>
+    <div class="projects-section" style="padding-bottom: 10px;">
+        <div class="featured-label">
+            <h3>⭐ Featured</h3>
+            <h2>Best Work So Far</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="featured-card">
+            <div class="featured-img">
+                🛒
+                <p>E-Commerce</p>
+            </div>
+            <div class="featured-details">
+                <span class="featured-badge">⭐ Featured Project</span>
+                <h3>Online Shopping Website</h3>
+                <p>
+                    A fully responsive e-commerce front-end built using HTML, CSS, and JavaScript.
+                    It includes a product listing page, a shopping cart with item count, a checkout
+                    flow, and a simple search filter. This was my biggest project and taught me a lot
+                    about layout, JavaScript DOM manipulation, and user experience.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Responsive</span>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn-view">View Live →</a>
+                    <a href="#" class="btn-code">GitHub Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ALL PROJECTS GRID -->
+    <div class="projects-section">
+        <div class="featured-label">
+            <h2>All Projects</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+
+            <!-- Project 1 -->
+            <div class="project-card" data-tags="html javascript">
+                <div class="project-img color2">
+                    📋
+                    <span class="badge">JavaScript</span>
+                    <span class="proj-label">Productivity</span>
+                </div>
+                <div class="project-details">
+                    <h3>To-Do List App</h3>
+                    <p>
+                        A clean task manager where you can add, complete, and delete tasks.
+                        Tasks are saved in localStorage so they stay even after refreshing.
+                        Built this to learn JavaScript events and DOM manipulation properly.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">localStorage</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn-view">View Live →</a>
+                        <a href="#" class="btn-code">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card" data-tags="javascript api">
+                <div class="project-img color3">
+                    🌦️
+                    <span class="badge">API</span>
+                    <span class="proj-label">Weather</span>
+                </div>
+                <div class="project-details">
+                    <h3>Weather App</h3>
+                    <p>
+                        Search any city and get real-time weather data — temperature, humidity,
+                        wind speed, and a weather icon. Uses the OpenWeatherMap API with
+                        JavaScript fetch(). My first time working with a live API.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">API</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn-view">View Live →</a>
+                        <a href="#" class="btn-code">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card" data-tags="html">
+                <div class="project-img color4">
+                    📰
+                    <span class="badge">HTML / CSS</span>
+                    <span class="proj-label">Layout</span>
+                </div>
+                <div class="project-details">
+                    <h3>Blog Layout Page</h3>
+                    <p>
+                        A multi-column blog layout with a sidebar, article cards, and a
+                        pagination bar. Practiced CSS Grid and Flexbox heavily here. Also
+                        added a working dark/light mode toggle using CSS variables.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS Grid</span>
+                        <span class="tag">Flexbox</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn-view">View Live →</a>
+                        <a href="#" class="btn-code">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="project-card" data-tags="html">
+                <div class="project-img color1">
+                    🎓
+                    <span class="badge">HTML / CSS</span>
+                    <span class="proj-label">Portfolio</span>
+                </div>
+                <div class="project-details">
+                    <h3>This Portfolio Website</h3>
+                    <p>
+                        The website you're looking at right now! Built from scratch using
+                        only HTML and CSS with a small bit of JavaScript for the contact form.
+                        Focused on clean layout, responsive design, and a consistent color theme.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="index.html" class="btn-view">View Site →</a>
+                        <a href="#" class="btn-code">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="stats-row">
+        <div class="stat-item">
+            <div class="num">7+</div>
+            <div class="stat-label">Projects Built</div>
+        </div>
+        <div class="stat-item">
+            <div class="num">5</div>
+            <div class="stat-label">Technologies Used</div>
+        </div>
+        <div class="stat-item">
+            <div class="num">3</div>
+            <div class="stat-label">Live Deployments</div>
+        </div>
+        <div class="stat-item">
+            <div class="num">2</div>
+            <div class="stat-label">Years of Coding</div>
+        </div>
+    </div>
+    <div class="back-cta">
+        <h2>Want to <span>Work Together?</span></h2>
+        <p>I'm currently open to internships and freelance opportunities. Feel free to reach out!</p>
+        <div class="cta-buttons">
+            <a href="index.html#contact" class="btn-primary">Contact Me</a>
+            <a href="index.html" class="btn-secondary">← Back to Portfolio</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Saad Khan. All Rights Reserved.</p>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </footer>
+
+
+    <script>
+        function filterProjects(tag, clickedBtn) {
+            document.querySelectorAll('.filter-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            clickedBtn.classList.add('active');
+            var cards = document.querySelectorAll('.project-card');
+            cards.forEach(function(card) {
+                if (tag === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    var cardTags = card.getAttribute('data-tags');
+                    if (cardTags && cardTags.includes(tag)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
